@@ -8,5 +8,5 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   templateUrl: "create-course.component.html"
 })
 export class CreateCourseComponent {
-
+  
 }
