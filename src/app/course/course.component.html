@@ -10,11 +10,13 @@
 
   </div>
 
-  <table mat-table class="lessons-table mat-elevation-z8" 
+  <div class="scrolling-container">
+
+    <table mat-table class="lessons-table mat-elevation-z8" 
     matSort matSortDisableClear matSortActive="seqNo" matSortDirection="asc"
     [dataSource]="lessons" multiTemplateDataRows>
     
-    <ng-container matColumnDef="select">
+    <ng-container matColumnDef="select" sticky>
 
       <th mat-header-cell *matHeaderCellDef>
 
@@ -34,7 +36,7 @@
 
     </ng-container>
 
-    <ng-container matColumnDef="seqNo">
+    <ng-container matColumnDef="seqNo" sticky>
   
       <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
   
@@ -64,7 +66,7 @@
 
     </ng-container>
   
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
   
     <tr mat-row (click)="onToogleLesson(lesson)" *matRowDef="let lesson; columns:displayedColumns"></tr>
 
@@ -72,6 +74,8 @@
       [class.collapsed-detail]="lesson != expandedLesson"></tr>
   
   </table>
+
+  </div>
 
   <mat-paginator class="mat-elevation-z8"
     [length]="course?.lessonsCount"
